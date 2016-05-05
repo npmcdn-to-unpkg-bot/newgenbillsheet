@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <title>New Gen Billing Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="thirdparty/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="thirdparty/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    
+    <!-- IE required polyfills, in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
+    <script src="https://npmcdn.com/angular2@2.0.0-beta.12/es6/dev/src/testing/shims_for_IE.js"></script>
+   
+    <script src="https://code.angularjs.org/2.0.0-beta.12/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://npmcdn.com/typescript@1.8.9/lib/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.12/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.12/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.12/router.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.12/http.dev.js"></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/main').then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+
+    <div class="app-header">
+      Billing Activities
+    </div>
+    <div>
+      <billing-app>Loading...</billing-app>
+      <won-app></won-app>
+	  <create_edit_won></create_edit_won>
+    </div>
+  </body>
+</html>

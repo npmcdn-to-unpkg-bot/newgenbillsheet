@@ -1,0 +1,15 @@
+db.createCollection("won_details");
+
+db.won_details.insert({_id:2094892, name:"WK-CLS-OFF-QA-TESTING", service_practice:"Assurance", location:"offshore", division:"WK-CLS"});
+db.won_details.insert({_id:2587930, name:"WK-TYM-APRH2", service_practice:"Assurance", location:"offshore", division:"WK-CLS"});
+db.won_details.insert({_id:2094138, name:"WK-HLTH_ON_PROVATION", service_practice:"Health", location:"onsite", division:"WK-Health"});
+
+
+db.createCollection("associate");
+db.associate.insert(_id:111111, name:'associate_1')
+db.associate.insert(_id:222222, name:'associate_2')
+db.associate.insert(_id:333333, name:'associate_3')
+db.associate.insert(_id:444444, name:'associate_4')
+db.associate.insert(_id:555555, name:'associate_5')
+db.associate.insert(_id:666666, name:'associate_6')
+db.associate.insert(_id:777777, name:'associate_7')
