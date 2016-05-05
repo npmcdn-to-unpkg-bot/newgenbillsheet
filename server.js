@@ -44,9 +44,9 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
     });
 
 	//Get all Service Practise
-    app.get('/rest/servicepractise', function(req, res){
-        console.log("caught servicepractise request");
-        db.collection('service_practise').find({}).toArray(function(err, docs) {
+    app.get('/rest/servicepractice', function(req, res){
+        console.log("caught servicepractice request");
+        db.collection('service_practice').find({}).toArray(function(err, docs) {
             res.send(docs);
             res.status(200).end();
         });       

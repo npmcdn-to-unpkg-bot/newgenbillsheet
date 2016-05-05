@@ -169,6 +169,7 @@ won-app {
 
 won-app .tab-content {
   padding-top : 20px;
+  padding-left : 10px;
 }
 
 #won-list {
@@ -183,3 +184,16 @@ won-app .tab-content {
   height : 35px;
 }
 
+won-app table {
+  margin-top: 20px;
+}
+
+.modal-body {
+    position: absolute!important;
+    width : 50%;
+    top: 10%;
+    left: 25%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: 2px solid black;
+}

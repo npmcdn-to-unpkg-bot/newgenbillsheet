@@ -2,12 +2,15 @@ import {Component} from 'angular2/core';
 import {WonService} from './won.service';
 import {OnInit} from 'angular2/core';
 import {Won} from './won';
+import {CreateEditWONComponent} from './createeditWON.component';
 
 @Component({
   selector : 'won-app',
   providers: [WonService],
+  directives : [CreateEditWONComponent],
   template: `
   <div class="tab-content">
+    <button class="btn btn-primary btn-xs" (click)="createWon()">Create New WON</button>
     <table class="table table-striped table-hover" id="won-list">
       <thead>
           <tr>
@@ -32,6 +35,11 @@ import {Won} from './won';
         </tr>
       </tbody>
     </table>
+    <div *ngIf="editWon == true">
+      <div class="modal-body">
+        <create_edit_won></create_edit_won>
+      </div>
+    </div>
   </div>
 `
 })
@@ -39,13 +47,17 @@ import {Won} from './won';
 export class WONComponent implements OnInit {
   constructor(private _wonService: WonService) { }
   wonList : Won[];
+  editWon : false;
 
   ngOnInit() {
-     //wonList = [{id : 101, name : 'LEXI'}, {id : 102, name : 'PROVATION'}];
-      this.getWonList().subscribe(wonList => this.wonList = wonList); 
+    this.getWonList().subscribe(wonList => this.wonList = wonList); 
   }
   
   getWonList() {
     return this._wonService.getWonList();
+  }
+
+  createWon() {
+    this.editWon = true;
   }
 }
