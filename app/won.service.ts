@@ -34,7 +34,12 @@ export class WonService {
 		return this._http.get('/rest/won')
                     .map(this.extractData);
 	}
-
+	
+	getWon(num: Number) :  Observable<Won> {
+		return this._http.get('/rest/won/num')
+                    .map(this.extractData);
+	}
+	
 	private extractData(res: Response) {
 	    if (res.status < 200 || res.status >= 300) {
 	      throw new Error('Bad response status: ' + res.status);

@@ -64,21 +64,31 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
 	//Get all WONs
     app.get('/rest/won', function(req, res){
         console.log("caught request");
-        /*res.send([{id : 101, name : 'HLTH'}, {id : 102, name : 'CLS'}]);
-        res.status(200).end();*/
         db.collection('won_details').find({}).toArray(function(err, docs) {
             res.send(docs);
             res.status(200).end();
         });       
     });
 	
+	//Get a single WON detail
+    app.get('/rest/won/:num', function(req, res){
+        console.log("caught request");
+        db.collection('won_details').find({_id : req.params.num}).toArray(function(err, docs) {
+            res.send(docs);
+            res.status(200).end();
+        });       
+    });
 
-    /*app.get('/', function(req, res) {
-        console.log("default")
-        res.sendFile('/Billing/index.html');
-    });*/
-
-    
+	//Get a single WON detail
+    app.post('/rest/newwon', function(req, res){
+        console.log("Add new won");
+		var wonobj = new Won();
+		wonobj = req.params.wonobj;
+        db.collection('won_details').find({_id : req.params.num}).toArray(function(err, docs) {
+            res.send(docs);
+            res.status(200).end();
+        });       
+    });
 
     app.use(function(req, res){
         res.sendStatus(404);
