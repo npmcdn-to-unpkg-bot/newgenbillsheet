@@ -10,6 +10,11 @@ import {Observable} from 'rxjs/Observable';
 export class WonService {
 	constructor (private _http: Http) {}
 
+	getWonTypeList() :  Observable<IdName[]> {
+		return this._http.get('/rest/wontype')
+                    .map(this.extractData);
+	}
+	
 	getEndClientList() :  Observable<IdName[]> {
 		return this._http.get('/rest/endclient')
                     .map(this.extractData);

@@ -20,6 +20,17 @@ import {Won} from './won';
                   <input type="text" class="form-control" required [(ngModel)]="wonobj.name">
                 </div>
 				<div class="form-group col-xs-4">
+                  <label for="name">WON Type</label>
+                  <select class="form-control" required [(ngModel)]="wonobj.work_location">
+          			     <option *ngFor="#wontype of wontypeList" [value]="wontype.name">{{wontype.name}}</option>
+          		    </select>
+                </div>
+	       	   <div class="form-group col-xs-4">
+                  <label for="name">WON Type</label>
+                  <input type="text" class="form-control" required [(ngModel)]="wonobj.won_type">
+                </div>
+	
+				<div class="form-group col-xs-4">
                   <label for="name">Start Date</label>
                   <input type="text" class="form-control" required [(ngModel)]="wonobj.start_dt">
                 </div>
@@ -59,15 +70,18 @@ import {Won} from './won';
 
 export class CreateEditWONComponent implements OnInit {
   constructor(private _wonService: WonService) { }
+  wontypeList : IdName[];
   endclientList : IdName[];
   worklocationList : IdName[];
   servicepractiseList : IdName[];
   leavecalendarList : IdName[];
+  
   public wonobj: new Won({_id:3444,name:'sdfgh'});
   wonaction : string = 'A';
   
   ngOnInit() {
-    this._wonService.getEndClientList().subscribe(endclientList => this.endclientList = endclientList); 
+      this._wonService.getWonTypeList().subscribe(wontypeList => this.wontypeList = wontypeList); 
+	  this._wonService.getEndClientList().subscribe(endclientList => this.endclientList = endclientList); 
 	  this._wonService.getWorkLocationList().subscribe(worklocationList => this.worklocationList = worklocationList); 
 	  this._wonService.getServicePracticeList().subscribe(servicepracticeList => this.servicepracticeList = servicepracticeList); 
 	  this._wonService.getLeaveCalendarList().subscribe(leavecalendarList => this.leavecalendarList = leavecalendarList); 	  

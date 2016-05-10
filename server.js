@@ -24,6 +24,15 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
 	app.get('/index', function(req, res) {
         res.sendFile('index.html',{ root: __dirname });
     });
+
+	//Get all WON Types
+    app.get('/rest/wontype', function(req, res){
+        console.log("caught won type request");
+        db.collection('won_type').find({}).toArray(function(err, docs) {
+            res.send(docs);
+            res.status(200).end();
+        });       
+    });
 	
 	//Get all End Clients
     app.get('/rest/endclient', function(req, res){
@@ -80,11 +89,14 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
     });
 
 	//Get a single WON detail
-    app.post('/rest/newwon', function(req, res){
+    app.post('/rest/newwon', function(req, res, next){
         console.log("Add new won");
 		var wonobj = new Won();
 		wonobj = req.params.wonobj;
-        db.collection('won_details').find({_id : req.params.num}).toArray(function(err, docs) {
+        db.collection('won_details').insert(
+			{_id : wonobj._id,name : wonobj.name,start_dt: wonobj.start_dt, end_dt: wonobj.end_dt,end_client:wonobj.end_client,
+			 work_location: wonobj.work_location,service_practice:wonobj.service_practice,leave_calendar:wonobj.leave_calendar
+		}).toArray(function(err, docs) {
             res.send(docs);
             res.status(200).end();
         });       

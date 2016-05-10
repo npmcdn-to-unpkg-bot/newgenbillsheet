@@ -1,8 +1,7 @@
-export class Won {
+export class Allocation {
   	constructor(
     	public _id:number,
     	public name:string,
-		public won_type:string,
 		public start_dt:string,
 		public end_dt:string,
     	public end_client : string,

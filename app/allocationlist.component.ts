@@ -12,7 +12,6 @@ import {Won} from './won';
           <tr>
             <th>WON #</th>
             <th>WON Name</th>
-			<th>WON Type</th>
 			<th>Start Date</th>
 			<th>End Date</th>
             <th>Division</th>
@@ -26,7 +25,6 @@ import {Won} from './won';
         <tr *ngFor="#won of wonList">
           <td>{{won._id}}</td>
           <td>{{won.name}} </td>
-		  <td>{{won.won_type}} </td>
 		  <td>{{won.start_dt}} </td>
 		  <td>{{won.end_dt}} </td>
           <td>{{won.division}} </td>
@@ -40,11 +38,19 @@ import {Won} from './won';
 `
 })
 
-export class WONListComponent implements OnInit {
+export class AllocationListComponent implements OnInit {
   constructor(private _wonService: WonService) { }
-  wonList : Won[];
+  endclientList : IdName[];
+  worklocationList : IdName[];
+  servicepractiseList : IdName[];
+  leavecalendarList : IdName[];
+  allocationList : Allocation[];
   
   ngOnInit() {
-	this._wonService.getWonList().subscribe(wonList => this.wonList = wonList); 
+      this._wonService.getEndClientList().subscribe(endclientList => this.endclientList = endclientList); 
+	  this._wonService.getWorkLocationList().subscribe(worklocationList => this.worklocationList = worklocationList); 
+	  this._wonService.getServicePracticeList().subscribe(servicepracticeList => this.servicepracticeList = servicepracticeList); 
+	  this._wonService.getLeaveCalendarList().subscribe(leavecalendarList => this.leavecalendarList = leavecalendarList); 	  
+	  this._wonService.getAllocationList().subscribe(allocationList => this.allocationList = allocationList); 	  
   }
  }

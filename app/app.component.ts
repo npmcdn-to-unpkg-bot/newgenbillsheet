@@ -13,12 +13,12 @@ import {HTTP_PROVIDERS} from 'angular2/http';
     <li class="won" [ngClass]="{active: activeTab == 'won'}">
        <a [routerLink]="['WON']" data-toggle="tab" (click)="selectTab('won')">WON Management</a>
     </li>
-    <li class="timesheet" [ngClass]="{active: activeTab == 'timesheet'}">
-       <a [routerLink]="['CreateEditWON']" data-toggle="tab" (click)="selectTab('timesheet')">Timesheet Entry</a>
+    <li class="allocations" [ngClass]="{active: activeTab == 'allocations'}">
+       <a [routerLink]="['WON']" data-toggle="tab" (click)="selectTab('won')">Associate Allocations</a>
     </li>
     <li class="reports" [ngClass]="{active: activeTab == 'reports'}">
-       <a [routerLink]="['WON']" data-toggle="tab" (click)="selectTab('reports')">Reports</a>
-    </li>
+       <a [routerLink]="['WON']" data-toggle="tab" (click)="selectTab('won')">Reports</a>
+    </li>	
   </ul>
   <router-outlet></router-outlet>
 `
@@ -26,9 +26,9 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 
 @RouteConfig([
   {path: '/won', name: 'WON', component: WONComponent}
-  {path: '/createeditwon', name: 'CreateEditWON', component: CreateEditWONComponent}
+  {path: '/allocations', name: 'AllocationList', component: WONComponent}
+  {path: '/reports', name: 'Reports', component: WONComponent}
 ])
-
 
 export class AppComponent {
   activeTab : string;
