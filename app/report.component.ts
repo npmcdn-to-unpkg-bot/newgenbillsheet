@@ -24,13 +24,10 @@ import {ProjectionReportComponent} from './projectionreport.component';
 
 export class ReportComponent implements OnInit {
   currentReport : string = '';
+  public currentReport: string="PROJECTION";
+
   constructor(private _wonService: WonService) { }
-  
-  ngOnInit() {
-    console.log('Report on init');
-	currentReport = 'PROJECTION';
-  }
-  
+    
   ShowProjectionReport() {
 	console.log('Show Proj Report');
     this.currentReport = 'PROJECTION';

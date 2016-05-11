@@ -18,8 +18,8 @@ import {HTTP_PROVIDERS} from 'angular2/http';
     <li class="allocations" [ngClass]="{active: activeTab == 'allocations'}">
        <a [routerLink]="['WON']" data-toggle="tab" (click)="selectTab('won')">Associate Allocations</a>
     </li>
-    <li class="reports" [ngClass]="{active: activeTab == 'reports'}">
-       <a [routerLink]="['reports']" data-toggle="tab" (click)="selectTab('reports')">Reports</a>
+    <li class="reports" [ngClass]="{active: activeTab == 'Reports'}">
+       <a [routerLink]="['Reports']" data-toggle="tab" (click)="selectTab('reports')">Reports</a>
     </li>	
   </ul>
   <router-outlet></router-outlet>
@@ -29,7 +29,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 @RouteConfig([
   {path: '/won', name: 'WON', component: WONComponent}
   {path: '/allocations', name: 'AllocationList', component: WONComponent}
-  {path: '/reports', name: 'Reports', component: ReportComponent}
+  {path: '/Reports', name: 'Reports', component: ReportComponent}
 ])
 
 export class AppComponent {

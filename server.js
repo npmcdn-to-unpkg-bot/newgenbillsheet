@@ -102,6 +102,15 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
         });       
     });
 
+	//Get all WONs
+    app.get('/rest/allocation', function(req, res){
+        console.log("caught allocation request");
+        db.collection('allocation').find({}).toArray(function(err, docs) {
+            res.send(docs);
+            res.status(200).end();
+        });       
+    });
+	
     app.use(function(req, res){
         res.sendStatus(404);
     });
