@@ -1,7 +1,11 @@
 export class Allocation {
   	constructor(
-    	public _id:number,
-    	public name:string,
+    	public _id:string,
+    	public won:string,
+		public won_name:string,
+		public emp_id:string,
+		public emp_name:string,
+		public bill_rate:number,
 		public start_dt:string,
 		public end_dt:string,
     	public end_client : string,

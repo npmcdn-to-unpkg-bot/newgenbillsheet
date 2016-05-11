@@ -45,6 +45,11 @@ export class WonService {
                     .map(this.extractData);
 	}
 	
+	getAllocationList() :  Observable<Allocation[]> {
+		return this._http.get('/rest/allocation')
+                    .map(this.extractData);
+	}
+	
 	private extractData(res: Response) {
 	    if (res.status < 200 || res.status >= 300) {
 	      throw new Error('Bad response status: ' + res.status);

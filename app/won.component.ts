@@ -29,12 +29,7 @@ export class WONComponent implements OnInit {
   showWons : true;
   wonAction : '';
 
-  todos: Todo[] = [
-      {text: 'learn angular',        done: true},
-      {text: 'build an angular app', done: false}
-  ];
-  
-  ngOnInit() {
+ ngOnInit() {
   console.log('won on init');
 	showWons : true;
   }
