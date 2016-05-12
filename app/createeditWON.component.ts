@@ -75,25 +75,25 @@ export class CreateEditWONComponent implements OnInit {
   worklocationList : IdName[];
   servicepractiseList : IdName[];
   leavecalendarList : IdName[];
-  
-  public wonobj: new Won({_id:3444,name:'sdfgh'});
+  wonobj : Won;
   wonaction : string = 'A';
   
   ngOnInit() {
-      this._wonService.getWonTypeList().subscribe(wontypeList => this.wontypeList = wontypeList); 
+    this._wonService.getWonTypeList().subscribe(wontypeList => this.wontypeList = wontypeList); 
 	  this._wonService.getEndClientList().subscribe(endclientList => this.endclientList = endclientList); 
 	  this._wonService.getWorkLocationList().subscribe(worklocationList => this.worklocationList = worklocationList); 
 	  this._wonService.getServicePracticeList().subscribe(servicepracticeList => this.servicepracticeList = servicepracticeList); 
-	  this._wonService.getLeaveCalendarList().subscribe(leavecalendarList => this.leavecalendarList = leavecalendarList); 	  
+	  this._wonService.getLeaveCalendarList().subscribe(leavecalendarList => this.leavecalendarList = leavecalendarList); 
+    this.wonobj = new Won();	
   }  
   
-   onSubmit() {
+  onSubmit() {
     var headers = new Headers();
-	headers.append('Content-Type', 'application/json');   
+	  headers.append('Content-Type', 'application/json');   
 
     var data = JSON.stringify({ wonobj });
 
-	this.http.post('http://localhost:3000/rest/newwon', data, {headers: headers})
-    .subscribe();
-  }
+  	this.http.post('http://localhost:3000/rest/newwon', data, {headers: headers})
+      .subscribe();
+    }
 }

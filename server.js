@@ -11,6 +11,16 @@ app.set('view engine', 'jade');
 app.use('/app', express.static('app'));
 app.use('/css', express.static('css'));
 app.use('/thirdparty', express.static('thirdparty'));
+app.use('/angular2/router', express.static('thirdparty/router.dev.js'));
+app.use('/thirdparty/2.0.0-beta.12/router.dev.js',  express.static('thirdparty/router.dev.js'));
+/*app.use('/rxjs/*', express.static('thirdparty/rxjs/*'));
+app.use("/rxjs/observable/PromiseObservable", express.static('thirdparty/rxjs/observable/PromiseObservable.js'));
+app.use("/rxjs/operator/toPromise", express.static('thirdparty/rxjs/operator/toPromise.js'));
+app.use("/rxjs/Subject/", express.static('thirdparty/rxjs/subject/'));
+app.use("/rxjs/Observable/", express.static('thirdparty/rxjs/observable/'));
+app.use("/rxjs/util/root", express.static('thirdparty/rxjs/util/root.js'));
+app.use("/rxjs/add/operator/map", express.static('thirdparty/rxjs/add/operator/map.js'));
+app.use("/rxjs/Subject", express.static('thirdparty/rxjs/subject'));*/
 
 MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracker', function(err, db) {
    

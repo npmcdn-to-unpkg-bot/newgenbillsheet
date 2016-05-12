@@ -29,18 +29,18 @@ export class WONComponent implements OnInit {
   showWons : true;
   wonAction : '';
 
- ngOnInit() {
-  console.log('won on init');
-	showWons : true;
+  ngOnInit() {
+    console.log('won on init');
+	  showWons : true;
   }
   
   addWon() {
-	console.log('add new won');
+	  console.log('add new won');
     this.showWons = false;
   }
   
   editWon() {
     this.showWons = false;
-	this.wonAction = 'edit';
+	  this.wonAction = 'edit';
   }
 }

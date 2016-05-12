@@ -1,13 +1,11 @@
 export class Won {
-  	constructor(
-    	public _id:number,
-    	public name:string,
-		public won_type:string,
-		public start_dt:string,
-		public end_dt:string,
-    	public end_client : string,
-    	public work_location : string,
-    	public service_practice : string,
-		public leave_calendar : string
-	) { }
+  		 _id:number;
+    	 name:string;
+		 won_type:string;
+		 start_dt:string;
+		 end_dt:string;
+    	 end_client : string;
+    	 work_location : string;
+    	 service_practice : string;
+		 leave_calendar : string;
 }
