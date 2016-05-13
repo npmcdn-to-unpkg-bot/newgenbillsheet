@@ -10,11 +10,8 @@ import {Allocation} from './allocation';
     <table class="table table-striped table-hover" id="won-list">
       <thead>
           <tr>
-            <th>Division</th>
 			<th>WON #</th>
             <th>WON Name</th>
-			<th>Service Practice</th>
-			<th>Location</th>
 			<th>Emp Id</th>
 			<th>Emp Name</th>
 			<th>Bill Rate</th>
@@ -25,11 +22,8 @@ import {Allocation} from './allocation';
       </thead>
       <tbody>
         <tr *ngFor="#allocation of allocationList">
-          <td>{{allocation.division}} </td>
-		  <td>{{allocation.won}}</td>
+          <td>{{allocation.won}}</td>
 		  <td>{{allocation.wonname}}</td>
-		  <td>{{allocation.service_practice}}</td>
-		  <td>{{allocation.work_location}}</td>
 		  <td>{{allocation.emp_id}}</td>
 		  <td>{{allocation.emp_name}}</td>
 		  <td>{{allocation.bill_rate}}</td>
