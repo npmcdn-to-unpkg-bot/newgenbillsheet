@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {WonService} from './won.service';
 import {OnInit} from 'angular2/core';
 import {Allocation} from './allocation';
+import {LeaveCalendar} from './leavcalendar';
 
 @Component({
   selector : 'Projection_Report',
@@ -17,7 +18,8 @@ import {Allocation} from './allocation';
 			<th>Bill Rate</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th>working days</th>
+			<th>Leave Days</th>
+			<th>Working Days</th>
           </tr>
       </thead>
       <tbody>
@@ -28,8 +30,13 @@ import {Allocation} from './allocation';
 		  <td>{{allocation.emp_name}}</td>
 		  <td>{{allocation.bill_rate}}</td>
 		  <td>{{allocation.start_date}}</td>
-		  <td>{{allocation.end_date}}</td>
-          <td>ToDO: Calculate working days</td>		  
+		  <td>{{allocation.end_date}}</td>          
+		  <ul> 
+		  <li *ngFor="#leaveobj of allocation.leaves">
+			{{leaveobj}}
+		  </li>
+		  </ul>
+		  <td>{{allocation.working_days - allocation.leaves.length}}</td>		  
         </tr>
       </tbody>
     </table>

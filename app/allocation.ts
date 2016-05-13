@@ -7,5 +7,6 @@ export class Allocation {
 		public bill_rate:number,
 		public start_dt:string,
 		public end_dt:string,
+		public working_days: number,
     	public leaves : string[]
 }
