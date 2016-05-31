@@ -112,10 +112,21 @@ MongoClient.connect('mongodb://admin:admin@ds011321.mlab.com:11321/billingtracke
         });       
     });
 
-	//Get all WONs
+	//Get All ative allocations
     app.get('/rest/allocation', function(req, res){
-        console.log("caught allocation request");
-        db.collection('allocation').find({}).toArray(function(err, docs) {
+        console.log("caught Active allocation request");
+		var date = new Date();
+		var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+		var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);	
+		
+        db.collection('allocation').find({
+		start_date: {
+						$lte: new Date(firstDay.toISOString())
+					},
+		end_date: 	{
+						$gte: new Date(firstDay.toISOString())
+					}
+}).toArray(function(err, docs) {
             res.send(docs);
             res.status(200).end();
         });       

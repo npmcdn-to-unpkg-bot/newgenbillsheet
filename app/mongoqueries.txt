@@ -1,0 +1,43 @@
+db.allocation.aggregate(
+
+  // Pipeline
+  [
+    // Stage 1
+    {
+      $group: {
+        _id:{groupclient:"$group_client"},   totalgroupclientPrice: { $sum: { $multiply: [ "$bill_rate", "$working_days",8 ] } }
+      }
+      
+    }
+
+  ]
+
+  // Created with 3T MongoChef, the GUI for MongoDB - http://3t.io/mongochef
+
+);
+
+Need to tag the below new WONs to the project Id. "800017025". When we try to do it no projects are getting listed in the available projects.
+
+2712798	WK-HLTH-OFF-DEV-UPTODATE
+2711839	WK-P1S-Dev-Off
+
+
+N Harishankar/TVM/TCS@TCS, Vikas Sharma2/CHN/TCS@TCS, Prakash4 M/AMER/TCS@TCS, Gopikannan Gunasekaran/CHN/TCS@TCS, Harish Babu1/CHN/TCS@TCS
+Narayanan1 N/CHN/TCS@TCS, , Tejendraprasad Chandrakantpatel/CHN/TCS@TCS, Ramesh Subburaj/CHN/TCS@TCS, Shaamee S/CHN/TCS@TCS, Shobana2 M/CHN/TCS@TCS, Alekhya Kaithepalli/CHN/TCS@TCS, Nanthakumar J/CHN/TCS@TCS, Aarthy Nks/CHN/TCS@TCS, Baradhwaj Chandramouli/CHN/TCS@TCS, Gokul Venmani/CHN/TCS@TCS, Kandasamy S/CHN/TCS@TCS, Lakshme A/CHN/TCS@TCS, Vijay Balusamy/CHN/TCS@TCS, Sanjib Panigrahi/CHN/TCS@TCS, Jenifer P/CHN/TCS@TCS, Saikrishna M/HYD/TCS@TCS, Sravan Kumarreddyy/CHN/TCS@TCS, Deepa Gothandaraman/CHN/TCS@TCS, sharath.uppuluri@tcsexch.com, Subashini2 S/CHN/TCS@TCS, Gowthami P/CHN/TCS@TCS, P Kannan1/CHN/TCS@TCS, naga.madireddy@wolterskluwer.com, Arun.Gunasekar@wolterskluwer.com, Senthilkannan.Selvaraju@wolterskluwer.com, Rajesh.Narayanaswomi@wolterskluwer.com, Selventhran.Serman@wolterskluwer.com, Muthukumar.Shanmugas@wolterskluwer.com, Siva.Brahmaiah@wolterskluwer.com, kaushik.ranganath@wolterskluwer.com, Ashwin.Ravindirababu@wolterskluwer.com, Vaishnavi.Ravichandr@wolterskluwer.com, John.Jai@wolterskluwer.com, Mahendra.Reddy@wolterskluwer.com, Sriramprasadh.Natarajan@wolterskluwer.com, sai.shyam@wolterskluwer.com, Khaja.Shaik@wolterskluwer.com, Thamizhvendhan.Thangarasu@wolterskluwer.com, Dhareni.Arulselvan@wolterskluwer.com, vinodh.anbalagan@wolterskluwer.com
+
+
+	
+	859226
+	
+	8001745	WK-HLTH-PROVATION-OFF-QA
+	
+	1. govind
+	2. mahendra
+	
+	Allocation mail
+	
+	mansi bill rate
+	
+	https://knowmax.ultimatix.net/sites/wk-reln/delivery/Project Financials/Forms/AllItems.aspx?RootFolder=%2fsites%2fwk%2dreln%2fdelivery%2fProject Financials%2fBilling Tracker%2fBilling Tracker%5fFY%2716%2d17&FolderCTID=&View=%7b5814BBA1%2dCDE0%2d4424%2dA2E9%2d12C54B6236CC%7d 
+	
+	
