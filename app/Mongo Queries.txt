@@ -1,11 +1,24 @@
-//Get active Allocations
-{
-    start_date: {
-        $lte: ISODate("2016-05-31T00:00:00.000Z")
-    },
-    end_date: {
-        $lte: ISODate("2016-12-31T00:00:00.000Z")
-    }
-}
+var date = new Date();
+		var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+		var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);	
+		
+		db.allocation.aggregate(	          
+	 	      { $match: { start_date: {$lte: ISODate(firstDay.toISOString())}}},	
+	 	      { $unwind: "$leaves" },
+	 	      { $group: { _id: { WON: "$won", emp_id: "$emp_id",bill_rate: "$bill_rate", month: { $month: "$leaves" } } , count: { $sum: 1 }} }			  	      
+		);
 
-//Get leaves
+
+/*
+Currently got the leave count . But need to group by Month inside leave count
+		var date = new Date();
+		var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+		var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);	
+		
+		db.allocation.aggregate(	          
+	 	      { $match: { start_date: {$lte: ISODate(firstDay.toISOString())}}},	
+	 	      { $unwind: "$leaves" },
+	 	      { $group: { _id: { WON: "$won", emp_id: "$emp_id",bill_rate: "$bill_rate" }, leave_count: { $sum: 1 } } }			  	      
+		);
+
+		*/
